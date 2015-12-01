@@ -215,7 +215,7 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 				   }
 			   }
 		   }
-	     /*  
+	       
 		   public void removeHorarioSala(String codigoDisciplina, int numSala,String diaDaSemana, int horaInicio, int horaFim)throws DisciplinaInexistenteException, SalaInexistenteException{// Método de remover horários
 			  //Removo horário sala
 			   List<Sala> s = this.pesquisaDisciplina(codigoDisciplina).getSalas();
@@ -224,7 +224,7 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 					  sa.removeHorario(diaDaSemana, horaInicio, horaFim);
 				  }  
 			  }
-		 }*/
+		 }
 		   
 		   
 		   
@@ -496,18 +496,6 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 		        
 		    }
 
-			 public void cadastraNivelDeInteresseDeProfessorPorDisciplina(String matriculaProf,String codDisciplina, int nivelPreferencia)throws PreferenciaInvalidaException, ProfessorInexistenteException, DisciplinaInexistenteException {
-             Professor prof = this.pesquisaProfessorPelaMatricula(matriculaProf);
-             Disciplina dis = this.pesquisaDisciplina(codDisciplina);
-
-			 }
-
-			 public List <Disciplina> consultaDisciplinasPorPreferenciaPorProfessor(String matriculaProfessor, int nivelPreferencia) throws ProfessorInexistenteException, PreferenciaInvalidaException{
-         
-             Professor prof = this.pesquisaProfessorPelaMatricula(matriculaProfessor);
-             return prof.getDisciplinasPreferidasComNivel(nivelPreferencia);//retorna a lista de disciplinas com nivel de preferÃªncia
-     
-    }
 		
 			 public void carregarSalasDeDisciplinasEmArquivo(String nomeArquivo) throws IOException, DisciplinaInexistenteException, SalaJaExisteException {
 
@@ -536,12 +524,7 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 			            }while(sala != null);
 			    }
 			    
-
 	
-		   
-		   
-		   
-	    
 	    
 }
 

@@ -10,12 +10,11 @@ public class MenuTest {
 		Gerenciamento gerenciamento = new Gerenciamento();
 		boolean sair = false;
 		while (!sair){
-		    String opcaoStr = JOptionPane.showInputDialog("Digite uma opçãoo: \n1) CadastraProfessor; \n2) RemoveProfessor;" //\n12) RemoveHorarioSala
+		    String opcaoStr = JOptionPane.showInputDialog("Digite uma opçãoo: \n1) CadastraProfessor; \n2) RemoveProfessor;" 
 		    		+ "\n3) PesquisaProfessorPeloNome; \n4) PesquisaProfessorPelaMatricula; \n5) AdicionaDisciplina: \n6) RemoveDisciplina: \n7) AdicionaSala:  \n8) RemoveSala:"
-		    		+ "\n9) PesquisaDisciplina:  \n10) PesquisaSala: \n11) AdicionaHorarioSala:  \n12)AlocaProfessorASala \n13 DesalocaProfessorDaSala \n14) PesquisaHorarioProfessor \n15) PesquisaSalasDoProfessor"
-		    		+ "\n16) PesquisaDisciplinaDoProfessor \n17) ImprimeProfessoresEDisciplinas: \n18)GravaInteressesDeProfessoresPorDisciplinasEmArquivo; \n19)CadastraNivelDeInteresseDeProfessorPorDisciplina;  \n20)ConsultaDisciplinasPorPreferenciaPorProfessor;"
-		    		+ "\n21) ObterListaDeProfessores: \n22)ObterListaDeDisciplinas: \n23)CarregarProfessoresDeArquivo: \n24)CarregarDisciplinasDeArquivo; \n25)GravarProfessoresEmArquivo: \n26)GravarDisciplinasEmArquivo:"
-		    		+ "\n27) GravarSalasDeDisciplinasEmArquivo: \n28)CarregarSalasDeDisciplinasEmArquivo: \n29) Sair"); //
+		    		+ "\n9) PesquisaDisciplina:  \n10) PesquisaSala: \n11) AdicionaHorarioSala:  \n12) RemoveHorarioSala: \n13) AlocaProfessorASala \n14) DesalocaProfessorDaSala \n15) PesquisaHorarioProfessor \n16) PesquisaSalasDoProfessor"
+		    		+ "\n17) PesquisaDisciplinaDoProfessor \n18) ImprimeProfessoresEDisciplinas: \n19) ObterListaDeProfessores: \n20)ObterListaDeDisciplinas: \n21)CarregarProfessoresDeArquivo: \n22)CarregarDisciplinasDeArquivo; \n23)GravarProfessoresEmArquivo: \n24)GravarDisciplinasEmArquivo:"
+		    		+ "\n25) GravarSalasDeDisciplinasEmArquivo: \n26)CarregarSalasDeDisciplinasEmArquivo: \n27) Sair"); 
 		    int opcao = Integer.parseInt(opcaoStr);
 			switch(opcao){
 		    	case 1: //CadastraProfessor;
@@ -148,7 +147,7 @@ public class MenuTest {
 		    		
 		    	
     				
-		    	/*case 12: //RemoveHorarioSala
+		    	case 12: //RemoveHorarioSala
 		    		String codigoDisci = (JOptionPane.showInputDialog("Digite o codigo da disciplina para adicionar o horário a Sala: "));
 		    		int numerSala = Integer.parseInt(JOptionPane.showInputDialog("Digite o numero da sala para adicionar o horário a sala: "));
 		    		String nomeDiaDaSemana1= JOptionPane.showInputDialog("Digite o dia da semana a ser adicionada: ");
@@ -162,9 +161,9 @@ public class MenuTest {
 		    		}catch( SalaInexistenteException e){
 		    			JOptionPane.showMessageDialog(null,"Horário da sala não removido, Erro:"+e.getMessage());
 		    		}
-		    		break;*/
+		    		break;
 		    		
-		    	case 12: //AlocaProfessorASala;
+		    	case 13: //AlocaProfessorASala;
 		    		String codigoDiscipl1 = (JOptionPane.showInputDialog("Digite o código da disciplina para alocar o professor da sala: ")); 
 		    		int numeroSala1 = Integer.parseInt(JOptionPane.showInputDialog("Digite o número da sala para ser elocada: "));
 		    		String matricula1 = (JOptionPane.showInputDialog("Digite a matricula do professor para ele ser alocado em uma sala: "));
@@ -177,7 +176,7 @@ public class MenuTest {
 		    			JOptionPane.showMessageDialog(null,"Professor nÃ£o alocado, Erro:"+e.getMessage());
 		    		}
 		    		break;
-		    	case 13: // DesalocaProfessorDaSala;
+		    	case 14: // DesalocaProfessorDaSala;
 		    		String codigoDisciplina11 = (JOptionPane.showInputDialog("Digite o código da disciplina para desalocar o professor da sala: ")); 
 		    		int numSala11 = Integer.parseInt(JOptionPane.showInputDialog("Digite o número da sala para ser desalocada: "));
 		    		String matricula2 = (JOptionPane.showInputDialog("Digite a matricula do professor para ele ser desalocado em da sala: "));
@@ -191,7 +190,7 @@ public class MenuTest {
 		    		}
 		    		break;
     					
-		    	case 14: //PesquisaHorariosProfessor;
+		    	case 15: //PesquisaHorariosProfessor;
 		    		String matriProfessor = (JOptionPane.showInputDialog("Digite a matricula do professor para pesquisar seus horários: "));
 		    		try{
 		    			gerenciamento.pesquisaHorariosProfessor(matriProfessor);
@@ -200,7 +199,7 @@ public class MenuTest {
 		    			JOptionPane.showMessageDialog(null,"Horarios do professor não encontrado, Erro:"+e.getMessage());
 		    		}
 		    		break;
-		    	case 15: // PesquisaSalasDoProfessor;
+		    	case 16: // PesquisaSalasDoProfessor;
 		    		String matricProf = (JOptionPane.showInputDialog("Digite a matricula do professor para pesquisar suas salas: "));
 		    		try{
 		    			gerenciamento.pesquisaSalasDoProfessor(matricProf);
@@ -209,7 +208,7 @@ public class MenuTest {
 		    			JOptionPane.showMessageDialog(null," Salas do professor não encontrado, Erro:"+e.getMessage());
 		    		}
 		    		break;
-		    	case 16: //PesquisaDisciplinasDoProfessor;
+		    	case 17: //PesquisaDisciplinasDoProfessor;
 		    		String matricuProf = (JOptionPane.showInputDialog("Digite a matricula do professor para pesquisar suas disciplinas: "));
 		    		try{
 		    			gerenciamento.pesquisaDisciplinasDoProfessor(matricuProf);
@@ -219,52 +218,18 @@ public class MenuTest {
 		    		}
 		    		break;
     					
-		    	case 17: //ImprimeProfessoresEDisciplinas;
+		    	case 18: //ImprimeProfessoresEDisciplinas;
 		    			gerenciamento.imprimeProfessoresEDisciplinas();
 		    			break;
-		    	case 18: // GravaInteressesDeProfessoresPorDisciplinasEmArquivo;
-		    		String arquivoInteProfPorDisc= JOptionPane.showInputDialog("Digite o Nome do arquivo pra gravar os interesses de professores por disciplina: ");
-		    		try{
-		    			gerenciamento.gravaInteressesDeProfessoresPorDisciplinasEmArquivo(arquivoInteProfPorDisc);
-		    			JOptionPane.showMessageDialog(null,"Interesses do professores por disciplinas gravados com sucesso!");
-		    		}catch(IOException e){
-		    			JOptionPane.showMessageDialog(null,"Interesses do professores por disciplinas não gravados, Erro:"+e.getMessage());
-		    		}
-					break;
-					case 19: //CadastraNivelDeInteresseDeProfessorPorDisciplina;
-			    		String matriProf= JOptionPane.showInputDialog("Digite a matricula do professor: ");
-						String codigoD= JOptionPane.showInputDialog("Digite o codigo da disciplina: ");
-						int nivelPreferencia= Integer.parseInt(JOptionPane.showInputDialog("Digite o Nivel de Preferência: "));
-						try{
-							gerenciamento.cadastraNivelDeInteresseDeProfessorPorDisciplina(matriProf, codigoD, nivelPreferencia);
-							JOptionPane.showMessageDialog(null,"Cadastro realizado com sucesso!");
-						}catch(PreferenciaInvalidaException e){
-							JOptionPane.showMessageDialog(null,"Cadastro não realzado, Erro:"+e.getMessage());
-						}catch(ProfessorInexistenteException e){
-							JOptionPane.showMessageDialog(null,"Cadastro não realizado, Erro:"+e.getMessage());
-						}catch(DisciplinaInexistenteException e){
-							JOptionPane.showMessageDialog(null,"Cadastro não realizado, Erro:"+e.getMessage());
-						}
-						break;
-			    	case 20: // ConsultaDisciplinasPorPreferenciaPorProfessor;
-			    		String MatricProfessor=JOptionPane.showInputDialog("Digite a matricula do professor: ");
-						int nivelPref=Integer.parseInt(JOptionPane.showInputDialog("Digite o nivel de preferência do professor: "));
-						try{
-							gerenciamento.consultaDisciplinasPorPreferenciaPorProfessor(MatricProfessor, nivelPref);
-							JOptionPane.showMessageDialog(null,"Consulta realizada com sucesso!");
-						}catch(ProfessorInexistenteException e){
-							JOptionPane.showMessageDialog(null,"Consulta não realizada, Erro:"+e.getMessage());
-						}catch(PreferenciaInvalidaException e){
-							JOptionPane.showMessageDialog(null,"Consulta não realiada, Erro:"+e.getMessage());
-						}
-						break;
-			    	case 21: // ObterListaDeProfessores;
+		    	
+			    case 19: // ObterListaDeProfessores;
 			    		JOptionPane.showMessageDialog(null,gerenciamento.obterListaDeProfessores());
 						break;
-			    	case 22: //ObterListaDeDisciplinas;
+						
+			    case 20: //ObterListaDeDisciplinas;
 			    		JOptionPane.showMessageDialog(null,gerenciamento.obterListaDeDisciplinas());
 						break;
-			    	case 23: //CarregarProfessoresDeArquivo;
+			    case 21: //CarregarProfessoresDeArquivo;
 			    		String nomeArquivo = JOptionPane.showInputDialog("Digite o Nome do arquivo para carregar o professor: ");
 			    		try{
 			    			gerenciamento.carregarProfessoresDeArquivo(nomeArquivo);
@@ -273,7 +238,7 @@ public class MenuTest {
 			    			JOptionPane.showMessageDialog(null,"Professores não carregados, Erro:"+e.getMessage());
 			    		}
 						break;
-			    	case 24: //CarregarDisciplinasDeArquivo;
+			    case 22: //CarregarDisciplinasDeArquivo;
 			    		String nomeArq = JOptionPane.showInputDialog("Digite o Nome do arquivo para carregar a disciplina: ");
 			    		try{
 			    			gerenciamento.carregarDisciplinasDeArquivo(nomeArq);
@@ -282,7 +247,7 @@ public class MenuTest {
 			    			JOptionPane.showMessageDialog(null,"Disciplinas não carregadas, Erro:"+e.getMessage());
 			    		}
 			    		break;
-			    	case 25: //GravarProfessoresEmArquivo;
+			    case 23: //GravarProfessoresEmArquivo;
 			    		String arquivoProf= JOptionPane.showInputDialog("Digite o Nome do arquivo pra gravar professor: ");
 			    		try{
 			    			gerenciamento.gravarProfessoresEmArquivo(arquivoProf);
@@ -291,7 +256,7 @@ public class MenuTest {
 			    			JOptionPane.showMessageDialog(null,"Professores nÃ£o gravados, Erro:"+e.getMessage());
 			    		}
 						break;
-			    	case 26: //GravarDisciplinasEmArquivo;
+			    case 24: //GravarDisciplinasEmArquivo;
 			    		String arquivoDisc= JOptionPane.showInputDialog("Digite o Nome do arquivo pra gravar disciplina: ");
 			    		try{
 			    			gerenciamento.gravarDisciplinasEmArquivo(arquivoDisc);
@@ -300,7 +265,7 @@ public class MenuTest {
 			    			JOptionPane.showMessageDialog(null,"Disciplinas nÃ£o gravadas, Erro:"+e.getMessage());
 			    		}
 						break;
-			    	case 27: // GravarSalasDeDisciplinasEmArquivo;
+			    case 25: // GravarSalasDeDisciplinasEmArquivo;
 			    		String arquivoSalasDisc= JOptionPane.showInputDialog("Digite o Nome do arquivo pra gravar salas de disciplinas: ");
 			    		try{
 			    			gerenciamento.gravarSalasDeDisciplinasEmArquivo(arquivoSalasDisc);;
@@ -309,7 +274,8 @@ public class MenuTest {
 			    			JOptionPane.showMessageDialog(null,"Salas de disciplinas não gravadas, Erro:"+e.getMessage());
 			    		}
 						break;
-			    	case 28: //CarregarSalasDeDisciplinasEmArquivo;
+			    	
+			    case 26: //CarregarSalasDeDisciplinasEmArquivo;
 			    		String arquivoSalasDisciplinas= JOptionPane.showInputDialog("Digite o Nome do arquivo pra carregar salas de disciplinas: ");
 			    		try{
 			    			gerenciamento.carregarSalasDeDisciplinasEmArquivo(arquivoSalasDisciplinas);
@@ -324,7 +290,7 @@ public class MenuTest {
 						break;
     				
 		    		
-		    	case 29: //Sair;
+		    	case 27: //Sair;
 		    		 sair = true;
 					    JOptionPane.showMessageDialog(null, "Programa Gerenciamento de Salas terminado. Até mais");
 

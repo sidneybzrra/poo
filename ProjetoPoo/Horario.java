@@ -44,6 +44,42 @@ public class Horario {
 		this.horaFim = horaFim;
 	}
 	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result
+				+ ((diaDaSemana == null) ? 0 : diaDaSemana.hashCode());
+		result = prime * result + horaFim;
+		result = prime * result + horaInicio;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Horario other = (Horario) obj;
+		if (diaDaSemana == null) {
+			if (other.diaDaSemana != null)
+				return false;
+		} else if (!diaDaSemana.equals(other.diaDaSemana))
+			return false;
+		if (horaFim != other.horaFim)
+			return false;
+		if (horaInicio != other.horaInicio)
+			return false;
+		return true;
+	}
+	
+	
+}
+
+	
 	
 
 }

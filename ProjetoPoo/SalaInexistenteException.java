@@ -1,3 +1,4 @@
+package POO;
 
 public class SalaInexistenteException extends Exception {
 
@@ -7,3 +8,4 @@ public class SalaInexistenteException extends Exception {
 	}
 
 }
+

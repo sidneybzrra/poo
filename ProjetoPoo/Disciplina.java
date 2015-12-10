@@ -1,3 +1,4 @@
+package POO;
 
 import java.util.*;
 import java.io.*;
@@ -84,7 +85,7 @@ public class Disciplina {
 		
 		String teste = new String();
 		teste += this.nome+"\n";
-		teste += this.codigo+"\n";
+		teste += this.codigo;
 	
 		for(Sala t: this.salas){
 	

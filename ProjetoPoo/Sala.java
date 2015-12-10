@@ -1,7 +1,8 @@
-import java.util.ArrayList;
+package POO;
+
 import java.util.List;
 
-public class Sala extends Horario{
+public class Sala {
 	
 	private int numero;
 	private Professor professor;
@@ -11,20 +12,6 @@ public class Sala extends Horario{
 	private int qtdAlunosPorSala;
 	private int salaPertenceAoBloco;
 	
-	public Sala (int numero, String tipoSala, int qtdAlunosPorSala, int salaPertenceAoBloco){
-		super (diaDaSemana, horaInicio, horaFim);
-		this.numero = numero;
-		this.setTipoSala(tipoSala);
-		this.qtdAlunosPorSala = qtdAlunosPorSala;
-		this.salaPertenceAoBloco = salaPertenceAoBloco;
-		horarios = new ArrayList <Horario>();
-	}
-	
-	public Sala(Disciplina disciplina, int numero){
-		this.disciplina = disciplina;
-		this.numero = numero;
-		horarios = new ArrayList <Horario>();
-	}
 	public Professor getProfessor(){
 		return this.professor;
 	}
@@ -72,9 +59,6 @@ public class Sala extends Horario{
 	public void setTipoSala(String tipoSala) {
 		this.tipoSala = tipoSala;
 	}
-
-	
-	
 
 
 }

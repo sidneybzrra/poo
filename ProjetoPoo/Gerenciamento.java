@@ -1,3 +1,4 @@
+package POO;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -13,17 +14,17 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 	    private List<Professor> professores;
 	    private List<Horario> horarios;
 	    
-	    //m√©todo de remover o horario <<<=== fazer ainda.
+	    //mÈtodo de remover o horario <<<=== fazer ainda.
 	    
 	    // Iniciando o construtor com as instancias das listas
 	    public Gerenciamento(){
 	    
 	        this.disciplinas = new LinkedList<Disciplina>(); //inicializa a lista de Disciplinas
 	        this.professores = new LinkedList<Professor>(); //inicializa a lista de Professores
-	        this.horarios = new LinkedList<Horario>(); // inicializa a lista de hor√°rios
+	        this.horarios = new LinkedList<Horario>(); // inicializa a lista de hor·rios
 	    }
 	    
-	    // Come√ßando no m√©todos de adicionar, pesquisar e remover
+	    // ComeÁando no mÈtodos de adicionar, pesquisar e remover
 	    public void cadastraProfessor(String nome, String matricula) throws ProfessorJaExisteException { //Cadastra professores   
 	        
 	    for(Professor p: this.professores) {
@@ -45,7 +46,7 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 	        List<Professor> pro = new LinkedList<Professor>();      
 	       
 	        for (Professor pr: this.professores){
-	            if(pr.getNome().indexOf(nome)>= 0){ // indexOF serve para saber qual √É¬≠ndice determinado peda√É¬ßo da string corresponde. Ele retorna um valor do tipo int.
+	            if(pr.getNome().indexOf(nome)>= 0){ // indexOF serve para saber qual √≠ndice determinado peda√ßo da string corresponde. Ele retorna um valor do tipo int.
 	                pro.add(pr);
 	         
 	            }     
@@ -93,7 +94,7 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 	        
 	             if(d.getCodigo().equals(codigoDisciplina)){
 	        
-	                 throw new DisciplinaJaExisteException("Disciplina j√° existente!");
+	                 throw new DisciplinaJaExisteException("Disciplina j· existente!");
 	             
 	            }
 	         
@@ -109,7 +110,7 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 	        
 	        for(Disciplina d: this.disciplinas){ //lista as disciplinas
 	            
-	            if(d.getCodigo().equals(codigo)){ //compara√É¬ßao do codigo da disciplina, se igual remove da lista
+	            if(d.getCodigo().equals(codigo)){ //compara√ßao do codigo da disciplina, se igual remove da lista
 	                
 	                disciplinas.remove(d); 
 	                teste = false;
@@ -124,7 +125,7 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 	         
 	        if (teste == true){
 	        
-	             throw new DisciplinaInexistenteException("N√£oo existe disciplina com esse codigo!");
+	             throw new DisciplinaInexistenteException("N„oo existe disciplina com esse codigo!");
 
 	        }else{
 	        
@@ -144,31 +145,37 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 	    
 	             }
 	         } 
-	         throw new DisciplinaInexistenteException("N√£o existe disciplina com esse codigo");
+	         throw new DisciplinaInexistenteException("N„o existe disciplina com esse codigo");
 	         
 	     }
 		
-	    public void adicionaSala(String codigoDisciplina, int numSala) throws DisciplinaInexistenteException, SalaJaExisteException{ //adiciona a Sala
+	    public void adicionaSala(String codigoDisciplina, int numSala) throws DisciplinaInexistenteException, SalaJaExisteException{ //adiciona a sala
+	        
+	         boolean teste = false;
 	    
-	         boolean existeDisciplina = false;
-	         boolean existeSala = true;
 	         for(Disciplina d: this.disciplinas){
-	             if(d.getCodigo().equals(codigoDisciplina)){
-	            	 existeDisciplina = true;
-	            	 if(!d.getSalas().equals(numSala)){
-	                 d.adicionaSala(numSala);
-	                 existeSala = false;
 	    
-	            	 }
-	             } 
-	           }
+	             if(d.getCodigo().equals(codigoDisciplina)){
+	    
+	                 d.adicionaSala(numSala);
+	                 teste = false;
+	                 break;
+	    
+	             }else{
+	            
+	                 teste = true;
+	            
+	             }
+	             
+	         }
 	         
-	        if(!existeDisciplina){
+	        if(teste == true){
 	        
-	             throw new DisciplinaInexistenteException("Disciplina com esse c√≥digo n√£o existe!");
+	             throw new DisciplinaInexistenteException("Disciplina n„o existe1!");
 	        
-	        }else if(existeSala){
-	        	throw new SalaJaExisteException("A sala j√° existe");
+	        }else{
+	        
+	             System.out.println("Sala adicionada!");
 	        
 	        }
 	     }
@@ -188,7 +195,7 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 	        
 	        if(!teste){
 	        
-	             throw new DisciplinaInexistenteException("Disciplina com esse c√≥digo n√£o existe!");
+	             throw new DisciplinaInexistenteException("Disciplina com esse cÛdigo n„o existe!");
 	        }
 	     
 	    }
@@ -201,13 +208,13 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 					return sa;
 				}
 			}
-			throw new  DisciplinaInexistenteException(" A disciplina n√£o existe");
+			throw new  DisciplinaInexistenteException(" A disciplina n„o existe");
 			
 		}
 	    
 	  
 		   public void adicionaHorarioSala(String  codigoDisciplina, int numSala, String diaDaSemana, int horaInicio, int horaFim) throws DisciplinaInexistenteException, SalaInexistenteException { 
-			   //Adiciona hor√°rio a sala
+			   //Adiciona hor·rio a sala
 			   List<Sala> s = this.pesquisaDisciplina( codigoDisciplina).getSalas();
 			   for(Sala sa: s){
 				   if(sa.getNumero()== numSala){
@@ -215,15 +222,9 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 				   }
 			   }
 		   }
-<<<<<<< HEAD
 	       
 		   public void removeHorarioSala(String codigoDisciplina, int numSala,String diaDaSemana, int horaInicio, int horaFim)throws DisciplinaInexistenteException, SalaInexistenteException{// MÈtodo de remover hor·rios
 			  //Removo hor·rio sala
-=======
-	     /*  Gente, ainda irei da uma olhada nesse m√©todo, n√£o resovi ainda pq n√£o tie tempo. "Thamires" ^^
-		   public void removeHorarioSala(String codigoDisciplina, int numSala,String diaDaSemana, int horaInicio, int horaFim)throws DisciplinaInexistenteException, SalaInexistenteException{// M√©todo de remover hor√°rios
-			  //Removo hor√°rio sala
->>>>>>> fdaf504d8c48c27c33d2635f63ace7c5d6c3626a
 			   List<Sala> s = this.pesquisaDisciplina(codigoDisciplina).getSalas();
 			  for(Sala sa: s){
 				  if(sa.getNumero()==numSala){
@@ -279,7 +280,7 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 		    
 		        }
 		    
-		        System.out.println("Menssagem" + aux);
+		        System.out.println("Menssagem \n " + aux);
 		        
 		        String dis = new String();
 		    
@@ -288,92 +289,10 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 		            dis += d.toString();
 		        }
 		    
-		        System.out.println("Menssagem" + dis);
+		        System.out.println("Menssagem \n" + dis);
 		    }
 
-			public void gravaInteressesDeProfessoresPorDisciplinasEmArquivo(String nomeArquivo)  throws IOException {
-					
-					BufferedWriter gravador = null;
-					
-					try{
-						gravador = new BufferedWriter(new FileWriter (nomeArquivo));
-					
-						for (Professor profe: this.professores){
-					
-							gravador.write(profe.getMatricula()+"\n");
-							gravador.write(profe.getTextoPreferenciasDisciplinasComCodigo() +"\n");
-						}
-					
-					}finally {
-					
-						if(gravador!=null){
-					
-							gravador.close();
-						
-						}
-					}
-			}
-			
-			public void carregaInteressesDeProfessoresPorDisciplinasDeArquivo(String nomeArquivo) throws PreferenciaInvalidaException,	ProfessorInexistenteException, DisciplinaInexistenteException, IOException {
 		
-				BufferedReader leitor = null;
-				int valor = 1;
-			
-				try{
-			
-					leitor = new BufferedReader(new FileReader (nomeArquivo));
-					String var = null;
-					Professor professor = null;
-					List<String> lista = null;
-			
-					do{
-			
-						var = leitor.readLine();
-			
-						if(var != null){
-			
-							if(valor == 1){
-			
-								professor = new Professor("", var);
-								this.professores.add(professor);
-
-							}else{
-			
-							String end = leitor.readLine();
-
-								if(end != null){
-
-									lista = this.leListaDeCodigosDeDisciplinasDeLinha(end);
-
-									for(String valuo: lista){
-
-										Disciplina dis = new Disciplina ("", valuo);
-										professor.adicionaPreferenciaDisciplina(dis, valor - 1);
-									}
-								}
-
-							} 
-					
-							if(valor == 5){
-							
-								valor = 1;
-								
-							}
-							
-							valor ++;
-						}
-						
-					}while(var != null);
-			
-				}finally {
-			
-					if(leitor!=null){
-			
-						leitor.close();
-					}
-				}
-				
-			}
 		    
 		    private List <String> leListaDeCodigosDeDisciplinasDeLinha(String linha){
 		   	    List <String> codigos = new LinkedList<String>();
@@ -483,7 +402,7 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 		            gravador.write(disciplina.getCodigo()+"\n"); //Chama o metodo da classe disciplina precisamente o getCodico e grava no arquivo 
 		            gravador.write(disciplina.getSalas().size()+"\n");//Chama o metodo da classe disciplina grava a sala
 		            
-		            for (int k=0; k< disciplina.getSalas().size(); k++){ // lan√ßa de repeti√ß√£o para gravar disciplinas nas salas
+		            for (int k=0; k< disciplina.getSalas().size(); k++){ // lanÁa de repetiÁ„o para gravar disciplinas nas salas
 
 		                Sala s = disciplina.getSalas().get(k);
 		                gravador.write(s.getNumero()+"\n");  
@@ -502,21 +421,6 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 		        
 		    }
 
-<<<<<<< HEAD
-=======
-			 public void cadastraNivelDeInteresseDeProfessorPorDisciplina(String matriculaProf,String codDisciplina, int nivelPreferencia)throws PreferenciaInvalidaException, ProfessorInexistenteException, DisciplinaInexistenteException {
-             Professor prof = this.pesquisaProfessorPelaMatricula(matriculaProf);
-             Disciplina dis = this.pesquisaDisciplina(codDisciplina);
-
-			 }
-
-			 public List <Disciplina> consultaDisciplinasPorPreferenciaPorProfessor(String matriculaProfessor, int nivelPreferencia) throws ProfessorInexistenteException, PreferenciaInvalidaException{
-         
-             Professor prof = this.pesquisaProfessorPelaMatricula(matriculaProfessor);
-             return prof.getDisciplinasPreferidasComNivel(nivelPreferencia);//retorna a lista de disciplinas com nivel de prefer√É¬™ncia
-     
-    }
->>>>>>> fdaf504d8c48c27c33d2635f63ace7c5d6c3626a
 		
 			 public void carregarSalasDeDisciplinasEmArquivo(String nomeArquivo) throws IOException, DisciplinaInexistenteException, SalaJaExisteException {
 
@@ -543,11 +447,12 @@ public class Gerenciamento implements Interface { // Depois Implementar a interf
 			                }
 			                
 			            }while(sala != null);
-			    }
+			 }
 			    
 	
 	    
 }
+
 
 
 

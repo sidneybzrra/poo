@@ -1,4 +1,4 @@
-
+package POO;
 
 public class SalaJaExisteException extends Exception {
 	public SalaJaExisteException(String msg){

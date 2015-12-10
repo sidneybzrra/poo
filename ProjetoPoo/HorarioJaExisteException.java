@@ -1,3 +1,4 @@
+package POO;
 
 public class HorarioJaExisteException extends Exception {
 

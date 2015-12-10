@@ -1,3 +1,4 @@
+package POO;
 
 public class PreferenciaInvalidaException extends Exception {
 

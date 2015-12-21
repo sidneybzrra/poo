@@ -22,7 +22,7 @@ public class HorarioTest {
 		assertEquals(17,h.getHoraFim());
 		
 	}
-	/*public void setDiaDaSemana(String diaDaSemana){
+	public void setDiaDaSemana(String diaDaSemana){
 		Horario h = new Horario("Segunda", 15, 17);
 		assertEquals("Terça",h.getDiaDaSemana());
 		assertEquals(13, h.getHoraInicio());
@@ -36,7 +36,7 @@ public class HorarioTest {
 		assertEquals(10,h.getHoraFim());
 		
 	}
-*/
+
 		
-	}
+}
 

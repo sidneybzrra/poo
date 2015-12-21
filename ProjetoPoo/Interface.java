@@ -21,14 +21,14 @@ public interface Interface {
 	public void gravarDisciplinasEmArquivo(String nomeArquivo) throws IOException;
 	public void gravarTurmasDeDisciplinasEmArquivo(String nomeArquivo) throws IOException;
 	public void carregarTurmasDeDisciplinasEmArquivo(String nomeArquivo) throws IOException, DisciplinaInexistenteException, SalaJaExisteException;
-	public void imprimeProfessoresEDisciplinas();
+	public void imprimeProfessoresEDisciplinas(); 
     public Sala pesquisaSala(String codDisciplina, int numSala) throws DisciplinaInexistenteException, SalaInexistenteException;
-	public void cadastraHorarioSala(String codDisciplina, int numTurma, String dia, int horaInicio, int horaFim) throws DisciplinaInexistenteException,SalaInexistenteException;
-	public void alocaProfessorASala(String codDisciplina, int numTurma, String matriculaProf) throws DisciplinaInexistenteException, SalaInexistenteException, ProfessorInexistenteException;
-     //	esse metodo vc deve configurar o professor da Sala (turma.setProfessor(...)) e deve também adicionar essa sala
-     //a  lista de turmas as quais o professor está alocado (p.alocaTurma(...))
-	public void desalocaProfessorDeSala(String codDisciplina, int numTurma, String matriculaProf) throws DisciplinaInexistenteException, SalaInexistenteException, ProfessorInexistenteException;
-     //Lembre de desfazer o que o metodo aloca faz, inclusive de chamar turma.setProfessor(null).
+	public void cadastraHorarioSala(String codDisciplina, int numSala, String dia, int horaInicio, int horaFim) throws DisciplinaInexistenteException,SalaInexistenteException;
+	public void alocaProfessorASala(String codDisciplina, int numSala, String matriculaProf) throws DisciplinaInexistenteException, SalaInexistenteException, ProfessorInexistenteException;
+     //	esse metodo vc deve configurar o professor da Sala (sala.setProfessor(...)) e deve também adicionar essa sala
+     //a  lista de salas as quais o professor está alocado (p.alocaTurma(...))
+	public void desalocaProfessorDeSala(String codDisciplina, int numSala, String matriculaProf) throws DisciplinaInexistenteException, SalaInexistenteException, ProfessorInexistenteException;
+     //Lembre de desfazer o que o metodo aloca faz, inclusive de chamar sala.setProfessor(null).
 	public List < Horario > pesquisaHorariosProfessor(String matriculaProf) throws ProfessorInexistenteException;
 	public List < Sala > pesquisaSalasDoProfessor(String matriculaProf) throws ProfessorInexistenteException;
 	public List < Disciplina > pesquisaDisciplinasDoProfessor(String matriculaProf) throws ProfessorInexistenteException;
@@ -36,5 +36,5 @@ public interface Interface {
 
 
 
-}
+
   

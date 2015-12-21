@@ -2,13 +2,12 @@ package POO;
 
 import java.util.List;
 
-public class Sala {
+public class Sala{
 	
 	private int numero;
 	private Professor professor;
 	private List<Horario> horarios;
 	private Disciplina disciplina;
-	private String tipoSala;
 	private int qtdAlunosPorSala;
 	private int salaPertenceAoBloco;
 	
@@ -50,14 +49,6 @@ public class Sala {
 	}
 	public void setSalaPertenceAoBloco(int salaPertenceAoBloco){
 		this.salaPertenceAoBloco = salaPertenceAoBloco;
-	}
-
-	public String getTipoSala() {
-		return tipoSala;
-	}
-
-	public void setTipoSala(String tipoSala) {
-		this.tipoSala = tipoSala;
 	}
 
 
